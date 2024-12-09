@@ -14,7 +14,7 @@ const createcarrossel = () => {
   const carrosselProps = onResize();
   const length = carrosselItems.length; // Longitud del array
   const degress = 360 / length; // Grados por cada item
-  const gap = 20; // Espacio entre cada item
+  const gap = 25; // Espacio entre cada item
   const tz = distanceZ(carrosselProps.w, length, gap);
 
   const fov = calculateFov(carrosselProps);
@@ -122,8 +122,13 @@ const initEvents = () => {
 
   window.addEventListener("resize", createcarrossel);
 
-  update();
+  
   createcarrossel();
+  update();
 };
+setTimeout(() => {
+  createcarrossel();
+}, 100); // 100 milisegundos deberían ser suficientes
+
 
 initEvents();

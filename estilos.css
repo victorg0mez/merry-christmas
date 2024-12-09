@@ -146,12 +146,12 @@ body {
   }
 
   .conteudo__geral{
-    background-color: #29ffc6;
+      
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
-    width: 0%;
+    width: 10%;
   }
 
   .container{
