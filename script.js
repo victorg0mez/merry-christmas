@@ -126,9 +126,10 @@ const initEvents = () => {
   createcarrossel();
   update();
 };
+
 setTimeout(() => {
   createcarrossel();
-}, 100); // 100 milisegundos deberían ser suficientes
+}, 100); // retrase para cargar los cambios
 
 
 initEvents();
