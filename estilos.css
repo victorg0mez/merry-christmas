@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0; 
+  height: 100vh; 
+  color: white;
+  font-family: "Lobster", sans-serif;
+  overflow: hidden; 
+  background-image: url('./img/image-cache.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.conteudo__geral {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100%;
+   
+}
+
+.container {
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-carrossel {
+  --widthItem: 150px;
+  --heightItem: 100px;
+  width: var(--widthItem);
+  height: var(--heightItem);
+  perspective: 1000px;
+}
+
+.carrossel {
+  --rotatey: 0;
+  font-size: 4rem;
+  position: relative;
+  transform: rotatey(var(--rotatey));
+  transform-style: preserve-3d;
+  user-select: none;
+  cursor: grab;
+}
+
+.carrossel-item {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  width: 100%; 
+  height: 450px; 
+}
+
+.carrossel-item:nth-child(1) {
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url('./img/imagenfondo1.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carrossel-item:nth-child(2) { /*imagen2*/
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url('./img/arolnavideño.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carrossel-item:nth-child(3) {
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url('./img/imagenfondoazul.webp');
+  background-position: unset;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carrossel-item:nth-child(4) { /*imagen3*/
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url('./img/waifu_navideña.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+
+.carrossel-item:nth-child(5) {
+  --rotate: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url('./img/imagenfondo3.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carrossel-item:nth-child(6) { /*imagen*/
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url('./img/frost2.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (min-width: 576px) {
+  .container-carrossel {
+    --widthItem: 250px;
+    --heightItem: 200px;
+  }
+}
+
+/*Bordes de algunas cards-----------------------------------------------*/
+.inner-border {
+  border-radius: 25%;
+  font-size: 28px;
+  border: 5px double white; /* Borde interior */
+  border-radius: 8px; /* Bordes redondeados del borde interior */
+  padding: 10px; /* Espacio interno */
+  height: 95%;
+  width: 90%; /* Para que ocupe todo el alto de la tarjeta */
+  box-sizing: border-box; /* Para incluir el padding y el borde en el tamaño total */
+}
+
+/*Responsive-------------------------------------------------------*/
+
+
+@media screen and (max-width: 576px) {
+  .carrossel {
+    font-size: 2rem; /* Ajustar el tamaño de fuente en móviles */
+  }
+
+  .carrossel-item {
+    height: 380px;
+    width: 160px; /* Ajustar la altura de los items en móviles */
+  }
+
+  .conteudo__geral{
+    background-color: #29ffc6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    width: 0%;
+  }
+
+  .container{
+    margin-bottom: 350px;
+    width:0%;
+  }
+  body{
+  background-image: url('./img/image-cel.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+
+  .inner-border{
+    font-size: 19px;
+  }
+ 
+}
