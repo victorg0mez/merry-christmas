@@ -134,26 +134,60 @@ setTimeout(() => {
 
 //reproduccion de sonidos
 
-const audio = new Audio('../sound/We Wish You A Merry Christmas.mp3');
+// const audio = new Audio('../sound/We Wish You A Merry Christmas.mp3');
 
-    // Función para intentar forzar la reproducción
-    const playAudio = () => {
-      audio.play().then(() => {
-        console.log("Audio reproducido correctamente.");
-      }).catch(err => {
-        console.warn("El navegador bloqueó la reproducción automática:", err);
-      });
-    };
+//     // Función para intentar forzar la reproducción
+//     const playAudio = () => {
+//       audio.play().then(() => {
+//         console.log("Audio reproducido correctamente.");
+//       }).catch(err => {
+//         console.warn("El navegador bloqueó la reproducción automática:", err);
+//       });
+//     };
 
-    // Intentar reproducir automáticamente después de que cargue la página
-    window.addEventListener('load', playAudio);
+//     // Intentar reproducir automáticamente después de que cargue la página
+//     window.addEventListener('load', playAudio);
 
-    // Detectar cualquier interacción con la página para forzar la reproducción
-    ['click', 'touchstart'].forEach(event => {
-      document.body.addEventListener(event, () => {
-        playAudio();
-      }, { once: true }); // Se ejecuta solo una vez
-    });
+//     // Detectar cualquier interacción con la página para forzar la reproducción
+//     ['click', 'touchstart'].forEach(event => {
+//       document.body.addEventListener(event, () => {
+//         playAudio();
+//       }, { once: true }); // Se ejecuta solo una vez
+//     });
 
+    //para celulares
+
+     // Cargar el archivo de audio
+     const audio = new Audio('../sound/We Wish You A Merry Christmas.mp3');
+
+     // Intentar reproducir el audio al cargar la página
+     const tryToPlayAudio = () => {
+       audio.play()
+         .then(() => {
+           console.log("Audio reproducido automáticamente.");
+         })
+         .catch((err) => {
+           console.warn("Reproducción bloqueada. Esperando interacción del usuario.");
+         });
+     };
+ 
+     // Reproducir el audio automáticamente en cuanto el usuario interactúe con la página
+     const enableAudioOnInteraction = () => {
+       audio.play()
+         .then(() => {
+           console.log("Audio reproducido tras interacción del usuario.");
+           // Eliminar los listeners una vez que el audio se reproduzca
+           document.removeEventListener('click', enableAudioOnInteraction);
+           document.removeEventListener('touchstart', enableAudioOnInteraction);
+         })
+         .catch(err => console.error("Error al intentar reproducir el audio:", err));
+     };
+ 
+     // Agregar listeners para click o touchstart en dispositivos móviles
+     document.addEventListener('click', enableAudioOnInteraction);
+     document.addEventListener('touchstart', enableAudioOnInteraction);
+ 
+     // Intentar reproducir al cargar la página
+     window.addEventListener('load', tryToPlayAudio);
 
 initEvents();
