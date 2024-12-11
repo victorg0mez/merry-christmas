@@ -131,8 +131,11 @@ setTimeout(() => {
   createcarrossel();
 }, 100); // retrase para cargar los cambios
 
+
+//reproduccion de sonidos
+
 const audio = new Audio('../sound/We Wish You A Merry Christmas.mp3');
-document.getElementById('play-audio').addEventListener('click', () => {
+document.getElementById('play-audio').addEventListener('touchstart', () => {
   audio.play();
 });
 window.onload = () => {
