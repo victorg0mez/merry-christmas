@@ -135,14 +135,25 @@ setTimeout(() => {
 //reproduccion de sonidos
 
 const audio = new Audio('../sound/We Wish You A Merry Christmas.mp3');
-document.getElementById('play-audio').addEventListener('touchstart', () => {
-  audio.play();
-});
-window.onload = () => {
-  // Opcional: intenta reproducir automáticamente al cargar la página
-  audio.play().catch(() => {
-    console.log('Audio bloqueado por el navegador.');
-    
-  });
-};
+
+    // Función para intentar forzar la reproducción
+    const playAudio = () => {
+      audio.play().then(() => {
+        console.log("Audio reproducido correctamente.");
+      }).catch(err => {
+        console.warn("El navegador bloqueó la reproducción automática:", err);
+      });
+    };
+
+    // Intentar reproducir automáticamente después de que cargue la página
+    window.addEventListener('load', playAudio);
+
+    // Detectar cualquier interacción con la página para forzar la reproducción
+    ['click', 'touchstart'].forEach(event => {
+      document.body.addEventListener(event, () => {
+        playAudio();
+      }, { once: true }); // Se ejecuta solo una vez
+    });
+
+
 initEvents();
