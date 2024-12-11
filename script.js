@@ -132,7 +132,7 @@ setTimeout(() => {
 }, 100); // retrase para cargar los cambios
 
 const audio = new Audio('../sound/We Wish You A Merry Christmas.mp3');
-document.getElementById('play-audio').addEventListener('touchstart', () => {
+document.getElementById('play-audio').addEventListener('click', () => {
   audio.play();
 });
 window.onload = () => {
