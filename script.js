@@ -131,7 +131,7 @@ setTimeout(() => {
   createcarrossel();
 }, 100); // retrase para cargar los cambios
 
-
+//interaccion de sonido para moviles
 const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
 
 document.getElementById("overlay").addEventListener("touchstart", () => {
