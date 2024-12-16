@@ -127,9 +127,11 @@ const initEvents = () => {
   update();
 };
 
+
 setTimeout(() => {
   createcarrossel();
 }, 100); // retrase para cargar los cambios
+initEvents();
 
 //interaccion de sonido para moviles
 const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
@@ -141,4 +143,4 @@ document.getElementById("overlay").addEventListener("touchstart", () => {
 
 }); // Asegura que el evento solo se ejecute una vez
 
-initEvents();
+
