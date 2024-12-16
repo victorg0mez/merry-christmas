@@ -138,6 +138,7 @@ document.getElementById("overlay").addEventListener("touchstart", () => {
   audio.play().then(() => {
     console.log("Audio reproducido con éxito.");
   }).catch(e => console.error("Error al reproducir audio:", e));
-}, { once: true }); // Asegura que el evento solo se ejecute una vez
+
+}); // Asegura que el evento solo se ejecute una vez
 
 initEvents();
