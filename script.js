@@ -138,9 +138,6 @@ document.getElementById("overlay").addEventListener("touchstart", () => {
   audio.play().then(() => {
     console.log("Audio reproducido con éxito.");
   }).catch(e => console.error("Error al reproducir audio:", e));
-
-  // Ocultar el overlay (fondo invisible) después de tocar
-  document.getElementById("overlay").style.display = "none";
 }, { once: true }); // Asegura que el evento solo se ejecute una vez
 
 initEvents();
