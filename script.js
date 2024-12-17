@@ -134,13 +134,31 @@ setTimeout(() => {
 initEvents();
 
 //interaccion de sonido para moviles
+// Crear el objeto de audio y precargarlo
 const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
+audio.preload = "auto"; // Precargar el audio automáticamente
 
-document.getElementById("overlay").addEventListener("touchstart", () => {
+// Detectar el primer toque para reproducir el audio
+document.body.addEventListener("touchstart", () => {
   audio.play().then(() => {
     console.log("Audio reproducido con éxito.");
   }).catch(e => console.error("Error al reproducir audio:", e));
 
-}); // Asegura que el evento solo se ejecute una vez
+  // Eliminar el evento para evitar múltiples reproducciones
+  document.body.removeEventListener("touchstart", arguments.callee);
+}); // Se ejecuta solo una vez
+
+
+
+// const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
+
+// document.getElementById("overlay").addEventListener("touchstart", () => {
+//   audio.play().then(() => {
+//     console.log("Audio reproducido con éxito.");
+//   }).catch(e => console.error("Error al reproducir audio:", e));
+
+// })
+
+
 
 
