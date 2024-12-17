@@ -138,32 +138,22 @@ initEvents();
 const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
 audio.preload = "auto"; // Precargar el audio automáticamente
 
-// Detectar primer toque en toda la pantalla para móviles
+// Función para manejar el toque en la pantalla
 const playAudioOnTouch = (e) => {
-  e.preventDefault(); // Prevenir acciones por defecto en el toque
+  e.preventDefault(); // Prevenir acciones predeterminadas
+
   audio.play().then(() => {
-    console.log("Audio reproducido con éxito.");
-  }).catch(err => {
+    console.log("Audio reproducido correctamente.");
+  }).catch((err) => {
     console.error("Error al reproducir el audio:", err);
   });
 
-  // Eliminar el listener después del primer toque
-  document.body.removeEventListener("touchstart", playAudioOnTouch);
+  // Eliminar el listener después del primer toque exitoso
+  document.body.removeEventListener("touchend", playAudioOnTouch);
 };
 
-document.body.addEventListener("touchstart", playAudioOnTouch, { passive: false });
-
-
-
-// const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
-
-// document.getElementById("overlay").addEventListener("touchstart", () => {
-//   audio.play().then(() => {
-//     console.log("Audio reproducido con éxito.");
-//   }).catch(e => console.error("Error al reproducir audio:", e));
-
-// })
-
+// Añadir el evento touchend para que funcione al soltar el dedo
+document.body.addEventListener("touchend", playAudioOnTouch, { passive: false });
 
 
 
