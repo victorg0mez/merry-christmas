@@ -128,20 +128,20 @@ const initEvents = () => {
 };
 
 
-// // Crear el objeto de audio y precargarlo
-// const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
-// audio.preload = "auto"; // Precargar el audio
+// Crear el objeto de audio y precargarlo
+const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
+audio.preload = "auto"; // Precargar el audio
 
-// // Función para reproducir el audio
-// const playAudio = () => {
-//   audio.play().catch((error) => {
-//     console.log("No se pudo reproducir el audio automáticamente:", error);
-//   });
-// };
+// Función para reproducir el audio
+const playAudio = () => {
+  audio.play().catch((error) => {
+    console.log("No se pudo reproducir el audio automáticamente:", error);
+  });
+};
 
-// // Agregar eventos para forzar la reproducción
-// document.body.addEventListener("touchstart", playAudio, { once: true });
-// document.body.addEventListener("mousedown", playAudio, { once: true });
+// Agregar eventos para forzar la reproducción
+document.body.addEventListener("touchstart", playAudio, { once: true });
+document.body.addEventListener("mousedown", playAudio, { once: true });
 
 setTimeout(() => {
   createcarrossel();
