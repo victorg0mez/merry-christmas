@@ -128,25 +128,24 @@ const initEvents = () => {
 };
 
 
-setTimeout(() => {
-  createcarrossel();
-}, 100); // retrase para cargar los cambios
-initEvents();
-
 // Crear el objeto de audio y precargarlo
 const audio = new Audio("./sound/We Wish You A Merry Christmas.mp3");
 audio.preload = "auto"; // Precargar el audio
 
 // Función para reproducir el audio
-function reproducirAudio(event) {
-  event.preventDefault(); // Evitar el comportamiento predeterminado
-  audio.play().then(() => {
-    console.log("Audio reproducido con éxito.");
-  }).catch(e => console.error("Error al reproducir audio:", e));
+const playAudio = () => {
+  audio.play().catch((error) => {
+    console.log("No se pudo reproducir el audio automáticamente:", error);
+  });
+};
 
-  // Eliminar el evento después del primer toque
-  document.body.removeEventListener("touchstart", reproducirAudio);
-}
+// Agregar eventos para forzar la reproducción
+document.body.addEventListener("touchstart", playAudio, { once: true });
+document.body.addEventListener("mousedown", playAudio, { once: true });
 
-// Detectar el primer toque
-document.body.addEventListener("touchstart", reproducirAudio, { passive: false });
+setTimeout(() => {
+  createcarrossel();
+}, 100); // retrase para cargar los cambios
+initEvents();
+
+
